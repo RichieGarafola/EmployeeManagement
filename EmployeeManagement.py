@@ -60,6 +60,13 @@ if selected_clearances:
             clearances_df.loc[clearances_df['level'].isin(selected_clearances), 'clearance_id'].values
         )
     ]
+    
+# Search employees by name
+search_name = st.sidebar.text_input('Search Employee by Name')
+if search_name:
+    filtered_employees_df = filtered_employees_df[
+        filtered_employees_df['name'].str.contains(search_name, case=False)
+    ]
 
 # Display the filtered data
 st.write('Filtered Employees Data')
