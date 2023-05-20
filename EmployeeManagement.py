@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from pyecharts import options as opts
-from pyecharts.charts import Gauge
 from sqlalchemy import create_engine
 
 # Define the database URL
