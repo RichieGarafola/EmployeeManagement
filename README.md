@@ -72,43 +72,69 @@ Connect to the newly created database using the following command:
 
 
     -- Create the contract_projects table
+    
     CREATE TABLE contract_projects (
+        
         contract_project_id SERIAL PRIMARY KEY,
+        
         name VARCHAR(255)
     );
 
     -- Create the work_locations table
+    
     CREATE TABLE work_locations (
+        
         work_location_id SERIAL PRIMARY KEY,
+       
         name VARCHAR(255)
     );
 
     -- Create the educations table
+    
     CREATE TABLE educations (
+        
         education_id SERIAL PRIMARY KEY,
+        
         level VARCHAR(255)
     );
 
     -- Create the clearances table
+    
     CREATE TABLE clearances (
+    
         clearance_id SERIAL PRIMARY KEY,
+        
         level VARCHAR(255),
+        
         status VARCHAR(255)
     );
 
     -- Create the employees table
+    
     CREATE TABLE employees (
+            
         name VARCHAR(255),
+        
         contract_project_id INT,
+        
         work_location_id INT,
+        
         years_of_experience INT,
+        
         education_id INT,
+        
         clearance_id INT,
+        
         origination_date DATE,
+        
         reinvestigation_date DATE,
+        
         FOREIGN KEY (contract_project_id) REFERENCES contract_projects (contract_project_id),
+        
         FOREIGN KEY (work_location_id) REFERENCES work_locations (work_location_id),
+        
         FOREIGN KEY (education_id) REFERENCES educations (education_id),
+        
         FOREIGN KEY (clearance_id) REFERENCES clearances (clearance_id)
     );
 
